@@ -1,0 +1,11 @@
+@import "tailwindcss";
+/* styles.css */
+.navi-sidebar {
+  width: 120px;
+}
+
+@media (min-width: 1025px) {
+  .navi-sidebar {
+    width: 200px; /* or whatever width you prefer for large screens */
+  }
+}
