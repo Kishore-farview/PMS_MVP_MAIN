@@ -1,19 +1,20 @@
 import React, { useState, } from 'react';
 import { Home, Users, Bed, Settings, Wallet, User, LogOut, Cog } from 'lucide-react';
 import NaviLogo from '../assets/NaviLogo.svg';
+import { Link } from 'react-router-dom';
 
 const NaviSidebar = () => {
     const [active, setActive] = useState('Dashboard');
     const menuItems = [
-        { name: 'Dashboard', icon: Home },
-        { name: 'Reservations', icon: Users },
-        { name: 'House Keeping', icon: Bed },
-        { name: 'Setup/Manage', icon: Settings },
-        { name: 'Accounting', icon: Wallet },
+        { name: 'Dashboard', icon: Home , path: '/' },
+        { name: 'Reservations', icon: Users , path: '/reservations' },
+        { name: 'House Keeping', icon: Bed , path: '/housekeeping'},
+        { name: 'Setup/Manage', icon: Settings , path: '/setup-manage' },
+        { name: 'Accounting', icon: Wallet , path: '/accounting'},
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#005C84] via-[#4A6FA5] to-[#4A2C82] text-white flex flex-col navi-sidebar">
+        <div className="min-h-screen bg-gradient-to-b from-[#005C84] via-[#4A6FA5] to-[#4A2C82] text-white flex flex-col w-[160px] h-full fixed left-0 top-0 z-10">
             {/* Logo Section */}
             <div className="pt-8 px-4">
                 <img src={NaviLogo} alt="Logo" className="w-30 h-25 mx-auto" />
@@ -27,7 +28,8 @@ const NaviSidebar = () => {
                     const isActive = active === item.name;
 
                     return (
-                        <button
+                        <Link
+                            to={item.path}
                             key={item.name}
                             onClick={() => setActive(item.name)}
                             className={`
@@ -58,7 +60,7 @@ const NaviSidebar = () => {
                                 {item.name}
                                 
                             </span>
-                        </button>
+                        </Link>
 
                     );
                 })}
