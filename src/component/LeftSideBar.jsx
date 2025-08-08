@@ -2,6 +2,7 @@ import React, { useState, } from 'react';
 import { Home, Users, Bed, Settings, Wallet, User, LogOut, Cog } from 'lucide-react';
 import NaviLogo from '../assets/NaviLogo.svg';
 import { Link } from 'react-router-dom';
+import DateTime from './DateTime';
 
 const NaviSidebar = () => {
     const [active, setActive] = useState('Dashboard');
@@ -65,7 +66,7 @@ const NaviSidebar = () => {
                     );
                 })}
             </div>
-
+            <DateTime />
 
             {/* Bottom Action Buttons */}
             <div className="px-3 lg:px-4 pb-6">
